@@ -59,3 +59,6 @@
 - データベース：PostgreSQL
 - デプロイ先：Render
 - 使用予定のライブラリ：Devise / Active Storage etc.
+
+## 画面遷移図
+https://www.figma.com/design/3G8oQ1Krowf2uYtvVleaRt/FukumomoLog?node-id=0-1&p=f
