@@ -1,0 +1,15 @@
+{
+	"name": "FukumomoLog",
+	"dockerComposeFile": ["../compose.yml", "compose.devcontainer.yml"],
+	"service": "web",
+	"workspaceFolder": "/myapp",
+	"forwardPorts": [3000],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+        "Shopify.ruby-lsp",
+        "ms-azuretools.vscode-docker"
+			]
+		}
+	}
+}
