@@ -6,6 +6,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # 追加カラムの登録
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [ :name ])
   end
 end
