@@ -24,6 +24,13 @@ ja:
         confirmation_instructions: 確認メールが届かない方
         unlock_instructions: ロック解除の案内が届かない方
         omniauth_sign_in: "%{provider}でログイン"
+  mypage:
+    title: "マイページ | Fukumomo Log"
+    heading: マイページ
+    links:
+      my_momonga: マイモモンガ
+      today_record: 今日の記録
+      record_list: 記録一覧
   activerecord:
     attributes:
       user:

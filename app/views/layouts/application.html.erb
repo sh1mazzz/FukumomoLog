@@ -19,7 +19,9 @@
   <body>
     <div class="min-h-screen bg-amber-50">
       <%= render "shared/header" %>
-      <%= yield %>
+      <main class="mx-auto w-full max-w-screen-2xl px-6 pt-10 pb-20">
+        <%= yield %>
+      </main>
       <%= render "shared/footer" %>
     </div>
   </body>

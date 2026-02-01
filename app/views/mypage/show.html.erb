@@ -1,4 +1,17 @@
-<% content_for(:title, "マイページ") %>
+<% content_for :title, t("mypage.title") %>
 
-<h1>マイページ</h1>
-<p>ここに「マイモモンガ」「今日の記録」「記録一覧」の導線を置く予定</p>
+<section class="rounded-3xl bg-white px-8 py-10 shadow-sm">
+  <h1 class="text-3xl font-bold leading-tight"><%= t("mypage.heading") %></h1>
+
+  <div class="mt-8 grid grid-cols-3 gap-4">
+    <div class="rounded-2xl border border-dashed border-gray-200 bg-gray-50 px-6 py-5 text-sm text-gray-500">
+      <%= t("mypage.links.my_momonga") %>
+    </div>
+    <div class="rounded-2xl border border-dashed border-gray-200 bg-gray-50 px-6 py-5 text-sm text-gray-500">
+      <%= t("mypage.links.today_record") %>
+    </div>
+    <div class="rounded-2xl border border-dashed border-gray-200 bg-gray-50 px-6 py-5 text-sm text-gray-500">
+      <%= t("mypage.links.record_list") %>
+    </div>
+  </div>
+</section>
