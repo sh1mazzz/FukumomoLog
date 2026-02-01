@@ -1,26 +1,32 @@
-<h2>Log in</h2>
+<% content_for :title, t("devise.sessions.new.title") %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-  </div>
+<main class="mx-auto w-full max-w-5xl px-6 pt-10 pb-20">
+  <section class="rounded-3xl bg-white px-8 py-10 shadow-sm">
+    <h1 class="text-3xl font-bold leading-tight"><%= t("devise.sessions.new.heading") %></h1>
 
-  <div class="field">
-    <p><%= f.label :password %></p>
-    <p><%= f.password_field :password, autocomplete: "current-password" %></p>
-  </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "mt-6 space-y-6" }) do |f| %>
+      <div>
+        <%= f.label :email, class: "text-sm font-semibold text-gray-700" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",
+              class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <p><%= f.check_box :remember_me %></p>
-      <p><%= f.label :remember_me %></p>
-    </div>
-  <% end %>
+      <div>
+        <%= f.label :password, class: "text-sm font-semibold text-gray-700" %>
+        <%= f.password_field :password, autocomplete: "current-password",
+              class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+      <% if devise_mapping.rememberable? %>
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+          <%= f.check_box :remember_me, class: "h-4 w-4 rounded border-gray-300 text-amber-500 focus:ring-amber-200" %>
+          <%= f.label :remember_me, t("devise.sessions.new.remember_me"), class: "text-sm text-gray-600" %>
+        </div>
+      <% end %>
 
-<%= render "devise/shared/links" %>
+      <div class="pt-2">
+        <%= f.submit t("devise.sessions.new.submit"), class: "inline-flex w-full items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-amber-600" %>
+      </div>
+    <% end %>
+  </section>
+</main>

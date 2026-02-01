@@ -1,0 +1,33 @@
+ja:
+  app:
+    name: Fukumomo Log
+  top:
+    title: Fukumomo Log
+    tagline: フクロモモンガの健康管理に必要な項目をシンプルに記録できます。
+  devise:
+    registrations:
+      new:
+        title: "新規登録 | Fukumomo Log"
+        heading: 新規登録
+        submit: アカウントを作成
+        password_minimum: "(%{count} 文字以上)"
+    sessions:
+      new:
+        title: "ログイン | Fukumomo Log"
+        heading: ログイン
+        submit: ログイン
+        remember_me: ログイン状態を保持
+      links:
+        log_in: ログインはこちら
+        sign_up: 新規登録はこちら
+        forgot_password: パスワードをお忘れの方
+        confirmation_instructions: 確認メールが届かない方
+        unlock_instructions: ロック解除の案内が届かない方
+        omniauth_sign_in: "%{provider}でログイン"
+  activerecord:
+    attributes:
+      user:
+        name: ユーザ名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
