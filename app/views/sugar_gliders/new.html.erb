@@ -1,0 +1,9 @@
+<% content_for :title, t("sugar_gliders.new.title") %>
+
+<section class="mx-auto max-w-2xl rounded-3xl bg-white px-8 py-10 shadow-sm">
+  <h1 class="mt-3 text-3xl font-bold leading-tight"><%= t("sugar_gliders.new.title") %></h1>
+
+  <div class="mt-8">
+    <%= render "form", sugar_glider: @sugar_glider %>
+  </div>
+</section>

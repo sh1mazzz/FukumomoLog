@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      sugar_glider: "マイモモンガ"
+    attributes:
+      user:
+        name: ユーザ名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+      sugar_glider:
+        name: "名前"
+        gender: "性別"
+        birthday: "生年月日"
+        weight: "体重(g)"
+    enums:
+      sugar_glider:
+        gender:
+          male: "オス"
+          female: "メス"

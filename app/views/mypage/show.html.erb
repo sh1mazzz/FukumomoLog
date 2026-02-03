@@ -1,4 +1,17 @@
-<% content_for(:title, "マイページ") %>
+<% content_for :title, t("mypage.title") %>
 
-<h1>マイページ</h1>
-<p>ここに「マイモモンガ」「今日の記録」「記録一覧」の導線を置く予定</p>
+<section class="rounded-3xl bg-white px-8 py-10 shadow-sm">
+  <h1 class="mt-3 text-3xl font-bold leading-tight"><%= t("mypage.heading") %></h1>
+
+  <div class="mt-8 grid gap-4 md:grid-cols-3">
+    <%= link_to edit_sugar_glider_path, class: "group block rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md" do %>
+      <%= t("mypage.links.my_momonga") %>
+    <% end %>
+    <div class="rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-500 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md">
+      <%= t("mypage.links.today_record") %>
+    </div>
+    <div class="rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-500 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md">
+      <%= t("mypage.links.record_list") %>
+    </div>
+  </div>
+</section>
