@@ -31,6 +31,8 @@ ja:
       my_momonga: マイモモンガ
       today_record: 今日の記録
       record_list: 記録一覧
+  common:
+    back_to_mypage: マイページへ戻る
   sugar_gliders:
     new:
       title: "マイモモンガ登録"
