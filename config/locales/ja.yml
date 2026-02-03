@@ -31,10 +31,10 @@ ja:
       my_momonga: マイモモンガ
       today_record: 今日の記録
       record_list: 記録一覧
-  activerecord:
-    attributes:
-      user:
-        name: ユーザ名
-        email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード（確認）
+  sugar_gliders:
+    new:
+      title: "マイモモンガ登録"
+    edit:
+      title: "マイモモンガ"
+    form:
+      submit: "保存"

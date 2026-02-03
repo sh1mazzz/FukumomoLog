@@ -20,6 +20,16 @@
     <div class="min-h-screen bg-amber-50">
       <%= render "shared/header" %>
       <main class="mx-auto w-full max-w-screen-2xl px-6 pt-10 pb-20">
+        <% if notice.present? %>
+          <div class="mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-800 shadow-sm">
+            <%= notice %>
+          </div>
+        <% end %>
+        <% if alert.present? %>
+          <div class="mb-6 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm text-rose-800 shadow-sm">
+            <%= alert %>
+          </div>
+        <% end %>
         <%= yield %>
       </main>
       <%= render "shared/footer" %>
