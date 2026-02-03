@@ -6,12 +6,22 @@ ja:
     tagline: フクロモモンガの健康管理に必要な項目をシンプルに記録できます。
   devise:
     registrations:
+      signed_up: "登録が完了しました。"
+      user:
+        signed_up: "登録が完了しました。"
       new:
         title: "新規登録 | Fukumomo Log"
         heading: 新規登録
         submit: アカウントを作成
         password_minimum: "(%{count} 文字以上)"
     sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "既にログアウトしています。"
+      user:
+        signed_in: "ログインしました。"
+        signed_out: "ログアウトしました。"
+        already_signed_out: "既にログアウトしています。"
       new:
         title: "ログイン | Fukumomo Log"
         heading: ログイン
@@ -36,7 +46,11 @@ ja:
   sugar_gliders:
     new:
       title: "マイモモンガ登録"
+      success: "マイモモンガを登録しました"
+      failure: "マイモモンガの登録に失敗しました"
     edit:
       title: "マイモモンガ"
+      success: "マイモモンガを更新しました"
+      failure: "マイモモンガの更新に失敗しました"
     form:
       submit: "保存"

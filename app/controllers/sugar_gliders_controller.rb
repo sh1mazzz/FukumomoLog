@@ -9,8 +9,9 @@ class SugarGlidersController < ApplicationController
     @sugar_glider = current_user.build_sugar_glider(sugar_glider_params)
 
     if @sugar_glider.save
-      redirect_to edit_sugar_glider_path, notice: "マイモモンガを登録しました"
+      redirect_to edit_sugar_glider_path, success: t("sugar_gliders.new.success")
     else
+      flash.now[:alert] = t("sugar_gliders.new.failure")
       render :new, status: :unprocessable_entity
     end
   end
@@ -19,6 +20,12 @@ class SugarGlidersController < ApplicationController
   end
 
   def update
+    if @sugar_glider.update(sugar_glider_params)
+      redirect_to edit_sugar_glider_path, success: t("sugar_gliders.edit.success")
+    else
+      flash.now[:alert] = t("sugar_gliders.edit.failure")
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
