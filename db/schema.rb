@@ -10,9 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_01_105415) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_04_122535) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_records", force: :cascade do |t|
+    t.bigint "sugar_glider_id", null: false
+    t.date "record_date", null: false
+    t.decimal "cage_temperature", precision: 3, scale: 1, null: false
+    t.integer "cage_humidity", null: false
+    t.decimal "activity_hours", precision: 3, scale: 1, null: false
+    t.integer "food_amount", null: false
+    t.integer "snack_amount", null: false
+    t.integer "water_amount", null: false
+    t.integer "pee_amount", null: false
+    t.integer "pee_color", null: false
+    t.integer "poop_amount", null: false
+    t.integer "poop_shape", null: false
+    t.boolean "night_crying", default: false, null: false
+    t.boolean "hair_loss", default: false, null: false
+    t.boolean "ear_dryness", default: false, null: false
+    t.boolean "self_injury", default: false, null: false
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sugar_glider_id", "record_date"], name: "index_daily_records_on_sugar_glider_id_and_record_date", unique: true
+    t.index ["sugar_glider_id"], name: "index_daily_records_on_sugar_glider_id"
+    t.check_constraint "activity_hours >= 0::numeric AND activity_hours <= 24::numeric", name: "daily_records_activity_hours_range"
+    t.check_constraint "cage_temperature >= '-50'::integer::numeric AND cage_temperature <= 50::numeric", name: "daily_records_cage_temperature_range"
+    t.check_constraint "mod(activity_hours * 2::numeric, 1::numeric) = 0::numeric", name: "daily_records_activity_hours_half_step"
+  end
 
   create_table "sugar_gliders", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -38,5 +65,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_01_105415) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "daily_records", "sugar_gliders"
   add_foreign_key "sugar_gliders", "users"
 end
