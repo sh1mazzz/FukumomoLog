@@ -1,9 +1,13 @@
 <div class="mx-auto mt-6 flex max-w-2xl justify-center">
-  <%= link_to path, class: "inline-flex items-center gap-2 rounded-full border border-amber-200 px-4 py-2 text-sm text-amber-700 transition hover:bg-amber-50 hover:text-amber-800", aria: { label: label } do %>
-    <svg aria-hidden="true" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
-      <!-- 家アイコンのSVG -->
-      <path d="M11.47 3.13a.75.75 0 0 1 1.06 0l9 9a.75.75 0 1 1-1.06 1.06L20 12.72V20a1 1 0 0 1-1 1h-4.5a.75.75 0 0 1-.75-.75V15a.75.75 0 0 0-.75-.75h-2a.75.75 0 0 0-.75.75v5.25a.75.75 0 0 1-.75.75H5a1 1 0 0 1-1-1v-7.28l-.47.47a.75.75 0 1 1-1.06-1.06l9-9Z" />
+  <%= link_to path, class: "inline-flex items-center gap-1.5 rounded-full border border-amber-200 px-4 py-2 text-sm text-amber-700 transition hover:bg-amber-50 hover:text-amber-800", aria: { label: label } do %>
+    <svg class="h-5 w-5 text-amber-700" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <polyline points="5 12 3 12 12 3 21 12 19 12" />
+      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
     </svg>
-    <span><%= t("common.back_to_mypage") %></span>
+    <span class="relative top-px leading-none">
+      <%= t("common.back_to_mypage") %>
+    </span>
   <% end %>
 </div>
