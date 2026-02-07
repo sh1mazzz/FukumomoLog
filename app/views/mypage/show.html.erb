@@ -7,11 +7,23 @@
     <%= link_to edit_sugar_glider_path, class: "group block rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md" do %>
       <%= t("mypage.links.my_momonga") %>
     <% end %>
-    <div class="rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-500 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md">
-      <%= t("mypage.links.today_record") %>
-    </div>
-    <div class="rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-500 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md">
-      <%= t("mypage.links.record_list") %>
-    </div>
+    <% if can_use_records? %>
+      <%= link_to new_daily_record_path, class: "group block rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md" do %>
+        <%= t("mypage.links.today_record") %>
+      <% end %>
+    <% else %>
+      <div class="rounded-2xl border border-gray-200 bg-gray-100 px-6 py-6 text-sm text-gray-400 shadow-sm opacity-70">
+        <%= t("mypage.links.today_record") %>
+      </div>
+    <% end %>
+    <% if can_use_records? %>
+      <%= link_to "#", class: "group block rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md" do %>
+        <%= t("mypage.links.record_list") %>
+      <% end %>
+    <% else %>
+      <div class="rounded-2xl border border-gray-200 bg-gray-100 px-6 py-6 text-sm text-gray-400 shadow-sm opacity-70">
+        <%= t("mypage.links.record_list") %>
+      </div>
+    <% end %>
   </div>
 </section>

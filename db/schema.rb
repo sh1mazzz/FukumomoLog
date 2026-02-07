@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_04_122535) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_07_085308) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,13 +20,13 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_04_122535) do
     t.decimal "cage_temperature", precision: 3, scale: 1, null: false
     t.integer "cage_humidity", null: false
     t.decimal "activity_hours", precision: 3, scale: 1, null: false
-    t.integer "food_amount", null: false
-    t.integer "snack_amount", null: false
-    t.integer "water_amount", null: false
-    t.integer "pee_amount", null: false
-    t.integer "pee_color", null: false
-    t.integer "poop_amount", null: false
-    t.integer "poop_shape", null: false
+    t.integer "food_amount", default: 0, null: false
+    t.integer "snack_amount", default: 0, null: false
+    t.integer "water_amount", default: 0, null: false
+    t.integer "pee_amount", default: 0, null: false
+    t.integer "pee_color", default: 0, null: false
+    t.integer "poop_amount", default: 0, null: false
+    t.integer "poop_shape", default: 0, null: false
     t.boolean "night_crying", default: false, null: false
     t.boolean "hair_loss", default: false, null: false
     t.boolean "ear_dryness", default: false, null: false
