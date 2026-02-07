@@ -1,20 +1,63 @@
 ja:
   activerecord:
-    models:
-      sugar_glider: "マイモモンガ"
     attributes:
       user:
-        name: ユーザ名
+        name: ユーザー名
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（確認）
       sugar_glider:
-        name: "名前"
-        gender: "性別"
-        birthday: "生年月日"
-        weight: "体重(g)"
+        name: 名前
+        gender: 性別
+        birthday: 生年月日
+        weight: 体重
+      daily_record:
+        record_date: 記録日
+        cage_temperature: ケージの気温 [℃]
+        cage_humidity: ケージの湿度 [%]
+        activity_hours: 活動時間 [h]
+        food_amount: ご飯の量
+        snack_amount: おやつの量
+        water_amount: 水分量
+        pee_amount: おしっこの量
+        pee_color: おしっこの色
+        poop_amount: うんちの量
+        poop_shape: うんちの形
+        night_crying: 夜鳴き
+        hair_loss: 脱毛
+        ear_dryness: 耳の乾燥
+        self_injury: 自傷行為
+        memo: メモ
     enums:
-      sugar_glider:
-        gender:
-          male: "オス"
-          female: "メス"
+      daily_record:
+        boolean:
+          "yes": あり
+          "no": なし
+        food_amount:
+          normal: 適量
+          much: 多い
+          little: 少ない
+        snack_amount:
+          normal: 適量
+          much: 多い
+          little: 少ない
+        water_amount:
+          normal: 適量
+          much: 多い
+          little: 少ない
+        pee_amount:
+          normal: 適量
+          much: 多い
+          little: 少ない
+        pee_color:
+          normal: 普通
+          light: 薄い
+          dark: 濃い
+        poop_amount:
+          normal: 適量
+          much: 多い
+          little: 少ない
+        poop_shape:
+          normal: 普通
+          soft: 柔らかい
+          hard: 硬い

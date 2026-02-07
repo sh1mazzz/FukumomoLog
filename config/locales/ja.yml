@@ -54,3 +54,9 @@ ja:
       failure: "マイモモンガの更新に失敗しました"
     form:
       submit: "保存"
+  daily_records:
+    new:
+      title: "今日の記録"
+      success: "今日の記録を保存しました"
+      failure: "今日の記録の保存に失敗しました"
+      need_sugar_glider: "先にマイモモンガを登録してください。"
