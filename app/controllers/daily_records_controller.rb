@@ -16,6 +16,10 @@ class DailyRecordsController < ApplicationController
     end
   end
 
+  def index
+    @daily_records = @sugar_glider.daily_records.order(record_date: :desc)
+  end
+
   private
 
   # マイモモンガが登録されていない場合、マイモモンガの新規登録ページに遷移する

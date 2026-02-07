@@ -17,7 +17,7 @@
       </div>
     <% end %>
     <% if can_use_records? %>
-      <%= link_to "#", class: "group block rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md" do %>
+      <%= link_to daily_records_path, class: "group block rounded-2xl border border-gray-200 bg-white px-6 py-6 text-sm text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md" do %>
         <%= t("mypage.links.record_list") %>
       <% end %>
     <% else %>

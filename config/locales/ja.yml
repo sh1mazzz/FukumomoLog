@@ -60,3 +60,14 @@ ja:
       success: "今日の記録を保存しました"
       failure: "今日の記録の保存に失敗しました"
       need_sugar_glider: "先にマイモモンガを登録してください。"
+    index:
+      title: "記録一覧"
+      empty_message: "記録がまだありません。"
+      table:
+        headers:
+          date: "日付"
+          food: "食事"
+          excretion: "排泄"
+          abnormal: "異変"
+          memo: "メモ"
+          action: "アクション"
