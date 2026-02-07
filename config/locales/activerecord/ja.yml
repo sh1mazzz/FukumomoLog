@@ -1,11 +1,21 @@
 ja:
   activerecord:
     attributes:
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+      sugar_glider:
+        name: 名前
+        gender: 性別
+        birthday: 生年月日
+        weight: 体重
       daily_record:
         record_date: 記録日
-        cage_temperature: ケージの気温
-        cage_humidity: ケージの湿度
-        activity_hours: 活動時間
+        cage_temperature: ケージの気温 [℃]
+        cage_humidity: ケージの湿度 [%]
+        activity_hours: 活動時間 [h]
         food_amount: ご飯の量
         snack_amount: おやつの量
         water_amount: 水分量

@@ -1,166 +1,188 @@
 <%= form_with model: daily_record, local: true, html: { class: "mt-6 space-y-6" } do |f| %>
-  <div>
-    <%= f.label :record_date, class: "text-sm font-semibold text-gray-700" %>
-    <%= f.date_field :record_date,
-          class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
-  </div>
+  <div class="grid gap-6 md:grid-cols-2">
+    <section class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+      <h2 class="text-sm font-semibold text-gray-700">環境情報</h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <div>
+          <%= f.label :record_date, class: "text-sm font-semibold text-gray-700" %>
+          <%= f.date_field :record_date,
+                class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+        </div>
 
-  <div>
-    <%= f.label :cage_temperature, class: "text-sm font-semibold text-gray-700" %>
-    <%= f.number_field :cage_temperature, step: 0.1,
-          class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
-  </div>
+        <div>
+          <%= f.label :activity_hours, class: "text-sm font-semibold text-gray-700" %>
+          <%= f.select :activity_hours, activity_hours_options, {},
+                class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+        </div>
 
-  <div>
-    <%= f.label :cage_humidity, class: "text-sm font-semibold text-gray-700" %>
-    <%= f.number_field :cage_humidity, step: 1,
-          class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
-  </div>
+        <div>
+          <%= f.label :cage_temperature, class: "text-sm font-semibold text-gray-700" %>
+          <%= f.number_field :cage_temperature, step: 0.1,
+                class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+        </div>
 
-  <div>
-    <%= f.label :activity_hours, class: "text-sm font-semibold text-gray-700" %>
-    <%= f.number_field :activity_hours, step: 0.5,
-          class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
-  </div>
+        <div>
+          <%= f.label :cage_humidity, class: "text-sm font-semibold text-gray-700" %>
+          <%= f.number_field :cage_humidity, step: 1,
+                class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+        </div>
+      </div>
+    </section>
 
-  <div>
-    <%= f.label :food_amount, class: "text-sm font-semibold text-gray-700" %>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <% DailyRecord.food_amounts.keys.each do |key| %>
-        <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-          <%= f.radio_button :food_amount, key %>
-          <%= t("activerecord.enums.daily_record.food_amount.#{key}") %>
-        </label>
-      <% end %>
-    </div>
-  </div>
+    <section class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+      <h2 class="text-sm font-semibold text-gray-700">食事管理</h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <div>
+          <%= f.label :food_amount, class: "text-sm font-semibold text-gray-700" %>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <% DailyRecord.food_amounts.keys.each do |key| %>
+              <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+                <%= f.radio_button :food_amount, key %>
+                <%= t("activerecord.enums.daily_record.food_amount.#{key}") %>
+              </label>
+            <% end %>
+          </div>
+        </div>
 
-  <div>
-    <%= f.label :snack_amount, class: "text-sm font-semibold text-gray-700" %>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <% DailyRecord.snack_amounts.keys.each do |key| %>
-        <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-          <%= f.radio_button :snack_amount, key %>
-          <%= t("activerecord.enums.daily_record.snack_amount.#{key}") %>
-        </label>
-      <% end %>
-    </div>
-  </div>
+        <div>
+          <%= f.label :snack_amount, class: "text-sm font-semibold text-gray-700" %>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <% DailyRecord.snack_amounts.keys.each do |key| %>
+              <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+                <%= f.radio_button :snack_amount, key %>
+                <%= t("activerecord.enums.daily_record.snack_amount.#{key}") %>
+              </label>
+            <% end %>
+          </div>
+        </div>
 
-  <div>
-    <%= f.label :water_amount, class: "text-sm font-semibold text-gray-700" %>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <% DailyRecord.water_amounts.keys.each do |key| %>
-        <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-          <%= f.radio_button :water_amount, key %>
-          <%= t("activerecord.enums.daily_record.water_amount.#{key}") %>
-        </label>
-      <% end %>
-    </div>
-  </div>
+        <div class="sm:col-span-2">
+          <%= f.label :water_amount, class: "text-sm font-semibold text-gray-700" %>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <% DailyRecord.water_amounts.keys.each do |key| %>
+              <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+                <%= f.radio_button :water_amount, key %>
+                <%= t("activerecord.enums.daily_record.water_amount.#{key}") %>
+              </label>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div>
-    <%= f.label :pee_amount, class: "text-sm font-semibold text-gray-700" %>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <% DailyRecord.pee_amounts.keys.each do |key| %>
-        <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-          <%= f.radio_button :pee_amount, key %>
-          <%= t("activerecord.enums.daily_record.pee_amount.#{key}") %>
-        </label>
-      <% end %>
-    </div>
-  </div>
+    <section class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+      <h2 class="text-sm font-semibold text-gray-700">排泄管理</h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <div>
+          <%= f.label :pee_amount, class: "text-sm font-semibold text-gray-700" %>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <% DailyRecord.pee_amounts.keys.each do |key| %>
+              <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+                <%= f.radio_button :pee_amount, key %>
+                <%= t("activerecord.enums.daily_record.pee_amount.#{key}") %>
+              </label>
+            <% end %>
+          </div>
+        </div>
 
-  <div>
-    <%= f.label :poop_amount, class: "text-sm font-semibold text-gray-700" %>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <% DailyRecord.poop_amounts.keys.each do |key| %>
-        <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-          <%= f.radio_button :poop_amount, key %>
-          <%= t("activerecord.enums.daily_record.poop_amount.#{key}") %>
-        </label>
-      <% end %>
-    </div>
-  </div>
+        <div>
+          <%= f.label :poop_amount, class: "text-sm font-semibold text-gray-700" %>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <% DailyRecord.poop_amounts.keys.each do |key| %>
+              <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+                <%= f.radio_button :poop_amount, key %>
+                <%= t("activerecord.enums.daily_record.poop_amount.#{key}") %>
+              </label>
+            <% end %>
+          </div>
+        </div>
 
-  <div>
-    <%= f.label :pee_color, class: "text-sm font-semibold text-gray-700" %>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <% DailyRecord.pee_colors.keys.each do |key| %>
-        <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-          <%= f.radio_button :pee_color, key %>
-          <%= t("activerecord.enums.daily_record.pee_color.#{key}") %>
-        </label>
-      <% end %>
-    </div>
-  </div>
+        <div>
+          <%= f.label :pee_color, class: "text-sm font-semibold text-gray-700" %>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <% DailyRecord.pee_colors.keys.each do |key| %>
+              <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+                <%= f.radio_button :pee_color, key %>
+                <%= t("activerecord.enums.daily_record.pee_color.#{key}") %>
+              </label>
+            <% end %>
+          </div>
+        </div>
 
-  <div>
-    <%= f.label :poop_shape, class: "text-sm font-semibold text-gray-700" %>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <% DailyRecord.poop_shapes.keys.each do |key| %>
-        <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-          <%= f.radio_button :poop_shape, key %>
-          <%= t("activerecord.enums.daily_record.poop_shape.#{key}") %>
-        </label>
-      <% end %>
-    </div>
-  </div>
+        <div>
+          <%= f.label :poop_shape, class: "text-sm font-semibold text-gray-700" %>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <% DailyRecord.poop_shapes.keys.each do |key| %>
+              <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+                <%= f.radio_button :poop_shape, key %>
+                <%= t("activerecord.enums.daily_record.poop_shape.#{key}") %>
+              </label>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div>
-    <span class="text-sm font-semibold text-gray-700"><%= f.label :night_crying %></span>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-        <%= f.radio_button :night_crying, true %>
-        <%= t("activerecord.enums.daily_record.boolean.yes") %>
-      </label>
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-        <%= f.radio_button :night_crying, false %>
-        <%= t("activerecord.enums.daily_record.boolean.no") %>
-      </label>
-    </div>
-  </div>
+    <section class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+      <h2 class="text-sm font-semibold text-gray-700">異変</h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <div>
+          <span class="text-sm font-semibold text-gray-700"><%= f.label :night_crying %></span>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <%= f.radio_button :night_crying, true %>
+              <%= t("activerecord.enums.daily_record.boolean.yes") %>
+            </label>
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <%= f.radio_button :night_crying, false %>
+              <%= t("activerecord.enums.daily_record.boolean.no") %>
+            </label>
+          </div>
+        </div>
 
-  <div>
-    <span class="text-sm font-semibold text-gray-700"><%= f.label :hair_loss %></span>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-        <%= f.radio_button :hair_loss, true %>
-        <%= t("activerecord.enums.daily_record.boolean.yes") %>
-      </label>
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-        <%= f.radio_button :hair_loss, false %>
-        <%= t("activerecord.enums.daily_record.boolean.no") %>
-      </label>
-    </div>
-  </div>
+        <div>
+          <span class="text-sm font-semibold text-gray-700"><%= f.label :hair_loss %></span>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <%= f.radio_button :hair_loss, true %>
+              <%= t("activerecord.enums.daily_record.boolean.yes") %>
+            </label>
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <%= f.radio_button :hair_loss, false %>
+              <%= t("activerecord.enums.daily_record.boolean.no") %>
+            </label>
+          </div>
+        </div>
 
-  <div>
-    <span class="text-sm font-semibold text-gray-700"><%= f.label :ear_dryness %></span>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-        <%= f.radio_button :ear_dryness, true %>
-        <%= t("activerecord.enums.daily_record.boolean.yes") %>
-      </label>
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-        <%= f.radio_button :ear_dryness, false %>
-        <%= t("activerecord.enums.daily_record.boolean.no") %>
-      </label>
-    </div>
-  </div>
+        <div>
+          <span class="text-sm font-semibold text-gray-700"><%= f.label :ear_dryness %></span>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <%= f.radio_button :ear_dryness, true %>
+              <%= t("activerecord.enums.daily_record.boolean.yes") %>
+            </label>
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <%= f.radio_button :ear_dryness, false %>
+              <%= t("activerecord.enums.daily_record.boolean.no") %>
+            </label>
+          </div>
+        </div>
 
-  <div>
-    <span class="text-sm font-semibold text-gray-700"><%= f.label :self_injury %></span>
-    <div class="mt-2 flex flex-wrap gap-4">
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-        <%= f.radio_button :self_injury, true %>
-        <%= t("activerecord.enums.daily_record.boolean.yes") %>
-      </label>
-      <label class="inline-flex items-center gap-2 text-sm text-gray-700">
-        <%= f.radio_button :self_injury, false %>
-        <%= t("activerecord.enums.daily_record.boolean.no") %>
-      </label>
-    </div>
+        <div>
+          <span class="text-sm font-semibold text-gray-700"><%= f.label :self_injury %></span>
+          <div class="mt-2 flex flex-wrap gap-4">
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <%= f.radio_button :self_injury, true %>
+              <%= t("activerecord.enums.daily_record.boolean.yes") %>
+            </label>
+            <label class="inline-flex items-center gap-2 text-sm text-gray-700">
+              <%= f.radio_button :self_injury, false %>
+              <%= t("activerecord.enums.daily_record.boolean.no") %>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 
   <div>

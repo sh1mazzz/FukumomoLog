@@ -18,13 +18,12 @@ class DailyRecordsController < ApplicationController
 
   private
 
+  # マイモモンガが登録されていない場合、マイモモンガの新規登録ページに遷移する
   def require_sugar_glider
     @sugar_glider = current_user.sugar_glider
     return if @sugar_glider.present?
 
-    flash.now[:alert] = t("daily_records.new.need_sugar_glider")
-    @daily_record = DailyRecord.new(record_date: Date.current)
-    render :new, status: :unprocessable_entity
+    redirect_to new_sugar_glider_path, alert: t("daily_records.new.need_sugar_glider")
   end
 
   def daily_record_params
