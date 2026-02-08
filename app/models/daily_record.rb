@@ -29,6 +29,29 @@ class DailyRecord < ApplicationRecord
     night_crying? || hair_loss? || ear_dryness? || self_injury?
   end
 
+  # 食事管理の注意判定
+  scope :with_food_attention, -> {
+    where.not(food_amount: :normal)
+      .or(where.not(snack_amount: :normal))
+      .or(where.not(water_amount: :normal))
+  }
+
+  # 排泄管理の注意判定
+  scope :with_excretion_attention, -> {
+    where.not(pee_amount: :normal)
+      .or(where.not(pee_color: :normal))
+      .or(where.not(poop_amount: :normal))
+      .or(where.not(poop_shape: :normal))
+  }
+
+  # 異変の注意判定
+  scope :with_abnormal_attention, -> {
+    where(night_crying: true)
+      .or(where(hair_loss: true))
+      .or(where(ear_dryness: true))
+      .or(where(self_injury: true))
+  }
+
   private
 
   # 活動時間が0.5刻みで入力されているか
