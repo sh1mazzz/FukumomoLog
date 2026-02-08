@@ -9,6 +9,5 @@ class CreateSugarGliders < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
-
   end
 end

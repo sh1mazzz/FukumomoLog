@@ -22,7 +22,7 @@ class CreateDailyRecords < ActiveRecord::Migration[7.2]
       t.timestamps
     end
 
-    add_index :daily_records, [:sugar_glider_id, :record_date], unique: true
+    add_index :daily_records, [ :sugar_glider_id, :record_date ], unique: true
 
     add_check_constraint :daily_records, "cage_temperature BETWEEN -50 AND 50", name: "daily_records_cage_temperature_range"
     add_check_constraint :daily_records, "activity_hours BETWEEN 0 AND 24", name: "daily_records_activity_hours_range"
