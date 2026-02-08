@@ -18,6 +18,11 @@ class DailyRecordsController < ApplicationController
 
   def index
     @daily_records = @sugar_glider.daily_records.order(record_date: :desc)
+
+    # チェックされた検索条件のみ絞り込みを追加
+    @daily_records = @daily_records.with_food_attention if params[:food_attention] == "1"
+    @daily_records = @daily_records.with_excretion_attention if params[:excretion_attention] == "1"
+    @daily_records = @daily_records.with_abnormal_attention if params[:abnormal_attention] == "1"
   end
 
   private

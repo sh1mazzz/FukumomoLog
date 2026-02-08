@@ -63,6 +63,11 @@ ja:
     index:
       title: "記録一覧"
       empty_message: "記録がまだありません。"
+      search:
+        food_attention: "食事に注意がある日"
+        excretion_attention: "排泄に注意がある日"
+        abnormal_attention: "異変がある日"
+        submit: "検索"
       table:
         headers:
           date: "日付"
