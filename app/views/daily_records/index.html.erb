@@ -22,9 +22,9 @@
           <% @daily_records.each do |record| %>
             <tr class="hover:bg-amber-50/40">
               <td class="whitespace-nowrap px-4 py-3"><%= l(record.record_date) %></td>
-              <td class="px-4 py-3">-</td>
-              <td class="px-4 py-3">-</td>
-              <td class="px-4 py-3">-</td>
+              <td class="px-4 py-3"><%= record.food_attention? ? t("daily_records.index.table.attention") : t("daily_records.index.table.normal") %></td>
+              <td class="px-4 py-3"><%= record.excretion_attention? ? t("daily_records.index.table.attention") : t("daily_records.index.table.normal") %></td>
+              <td class="px-4 py-3"><%= record.abnormal_attention? ? t("daily_records.index.table.attention") : t("daily_records.index.table.normal") %></td>
               <td class="px-4 py-3"><%= record.memo.presence || "-" %></td>
               <td class="px-4 py-3">
                 <div class="flex items-center justify-center gap-3 text-gray-300">

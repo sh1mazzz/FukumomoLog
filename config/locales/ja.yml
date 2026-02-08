@@ -71,3 +71,5 @@ ja:
           abnormal: "異変"
           memo: "メモ"
           action: "アクション"
+        attention: "⚪︎"
+        normal: "-"
