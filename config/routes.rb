@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resource :sugar_glider, only: %i[new create edit update]
 
   # 今日の記録
-  resources :daily_records, only: %i[new create index edit update]
+  resources :daily_records, only: %i[new create index edit update destroy]
 
   # ヘルスチェック
   get "up", to: "rails/health#show", as: :rails_health_check

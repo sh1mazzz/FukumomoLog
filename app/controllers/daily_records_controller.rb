@@ -1,6 +1,6 @@
 class DailyRecordsController < ApplicationController
   before_action :require_sugar_glider
-  before_action :set_daily_record, only: %i[edit update]
+  before_action :set_daily_record, only: %i[edit update destroy]
 
   def new
     @daily_record = @sugar_glider.daily_records.build(record_date: Date.current)
@@ -35,6 +35,14 @@ class DailyRecordsController < ApplicationController
     else
       flash.now[:alert] = t("daily_records.edit.failure")
       render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @daily_record.destroy
+      redirect_to daily_records_path, success: t("daily_records.destroy.success")
+    else
+      redirect_to daily_records_path, alert: t("daily_records.destroy.failure")
     end
   end
 
