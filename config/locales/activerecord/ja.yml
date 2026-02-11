@@ -29,6 +29,10 @@ ja:
         self_injury: 自傷行為
         memo: メモ
     enums:
+      sugar_glider:
+        gender:
+          male: オス
+          female: メス
       daily_record:
         boolean:
           "yes": あり
