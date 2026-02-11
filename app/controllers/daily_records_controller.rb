@@ -1,5 +1,6 @@
 class DailyRecordsController < ApplicationController
   before_action :require_sugar_glider
+  before_action :set_daily_record, only: %i[edit update]
 
   def new
     @daily_record = @sugar_glider.daily_records.build(record_date: Date.current)
@@ -23,6 +24,18 @@ class DailyRecordsController < ApplicationController
     @daily_records = @daily_records.with_food_attention if params[:food_attention] == "1"
     @daily_records = @daily_records.with_excretion_attention if params[:excretion_attention] == "1"
     @daily_records = @daily_records.with_abnormal_attention if params[:abnormal_attention] == "1"
+  end
+
+  def edit
+  end
+
+  def update
+    if @daily_record.update(daily_record_params)
+      redirect_to daily_records_path, success: t("daily_records.edit.success")
+    else
+      flash.now[:alert] = t("daily_records.edit.failure")
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
@@ -54,5 +67,9 @@ class DailyRecordsController < ApplicationController
       :self_injury,
       :memo
     )
+  end
+
+  def set_daily_record
+    @daily_record = @sugar_glider.daily_records.find(params[:id])
   end
 end
