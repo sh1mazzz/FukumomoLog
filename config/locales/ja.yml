@@ -64,6 +64,9 @@ ja:
       title: "今日の記録 (編集)"
       success: "今日の記録を更新しました"
       failure: "今日の記録の更新に失敗しました"
+    destroy:
+      success: "今日の記録を削除しました"
+      failure: "今日の記録の削除に失敗しました"
     index:
       title: "記録一覧"
       empty_message: "記録がまだありません。"
@@ -82,5 +85,7 @@ ja:
           action: "アクション"
         actions:
           edit: "編集"
+          delete: "削除"
+          delete_confirm: "この記録を削除します。よろしいですか？"
         attention: "⚪︎"
         normal: "-"
