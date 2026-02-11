@@ -6,7 +6,7 @@
   </div>
 
   <!-- 検索BOX -->
-  <div class="mt-6 mx-auto max-w-xs rounded-2xl border border-amber-100 bg-amber-50/40 px-4 py-4 text-left">
+  <div data-controller="attention-modal" class="mt-6 mx-auto max-w-xs rounded-2xl border border-amber-100 bg-amber-50/40 px-4 py-4 text-left">
     <!-- チェックボックスを揃えるための透明セクション -->
     <div class="mx-auto w-fit">
       <%= form_with url: daily_records_path, method: :get, local: true, class: "space-y-4 text-sm" do %>
@@ -24,12 +24,26 @@
             <span><%= t("daily_records.index.search.abnormal_attention") %></span>
           </label>
         </div>
-        <div class="text-center">
+
+        <div class="relative w-full text-center">
           <%= submit_tag t("daily_records.index.search.submit"),
               class: "rounded-full bg-amber-500 px-6 py-2 text-white hover:bg-amber-600" %>
+
+          <!-- インフォメーションマーク -->
+          <button type="button" data-action="attention-modal#open" aria-label="<%= t("daily_records.index.attention_modal.open") %>" class="absolute right-0 top-1/2 inline-flex h-6 w-6 -translate-y-1/2 items-center justify-center text-amber-700 hover:text-amber-800">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <circle cx="12" cy="12" r="9" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+              <path d="M11 12h1v4h1" />
+            </svg>
+          </button>
         </div>
       <% end %>
     </div>
+
+    <!-- 注意モーダル -->
+    <%= render "attention_modal" %>
   </div>
 
   <!-- 記録一覧 -->
