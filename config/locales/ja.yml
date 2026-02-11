@@ -70,6 +70,19 @@ ja:
     index:
       title: "記録一覧"
       empty_message: "記録がまだありません。"
+      attention_modal:
+        open: "注意の説明"
+        title: "注意の判定について"
+        close: "閉じる"
+        food:
+          title: "食事の注意"
+          body: "ご飯・おやつ・水分量のいずれかが「適量」以外の場合は注意になります。"
+        excretion:
+          title: "排泄の注意"
+          body: "おしっこの量・色、うんちの量・形のいずれかが「普通」以外の場合は注意になります。"
+        abnormal:
+          title: "異変の注意"
+          body: "夜鳴き・脱毛・耳の乾燥・自傷行為のいずれかが「有」の場合は注意になります。"
       search:
         food_attention: "食事に注意がある日"
         excretion_attention: "排泄に注意がある日"

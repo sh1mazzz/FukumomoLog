@@ -1,0 +1,24 @@
+<div data-attention-modal-target="modal" data-action="click->attention-modal#closeOnBackdrop" class="fixed inset-0 z-50 hidden bg-black/40 px-4 py-8">
+  <div class="mx-auto w-full max-w-md rounded-2xl bg-white p-6 shadow-lg">
+    <div class="flex items-center justify-between">
+      <h2 class="text-base font-semibold text-gray-800"><%= t("daily_records.index.attention_modal.title") %></h2>
+      <button type="button" data-action="attention-modal#close" class="text-sm text-gray-500 hover:text-gray-700">
+        <%= t("daily_records.index.attention_modal.close") %>
+      </button>
+    </div>
+    <div class="mt-4 space-y-4 text-sm text-gray-700">
+      <div>
+        <p class="font-semibold"><%= t("daily_records.index.attention_modal.food.title") %></p>
+        <p class="mt-1"><%= t("daily_records.index.attention_modal.food.body") %></p>
+      </div>
+      <div>
+        <p class="font-semibold"><%= t("daily_records.index.attention_modal.excretion.title") %></p>
+        <p class="mt-1"><%= t("daily_records.index.attention_modal.excretion.body") %></p>
+      </div>
+      <div>
+        <p class="font-semibold"><%= t("daily_records.index.attention_modal.abnormal.title") %></p>
+        <p class="mt-1"><%= t("daily_records.index.attention_modal.abnormal.body") %></p>
+      </div>
+    </div>
+  </div>
+</div>
