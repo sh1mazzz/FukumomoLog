@@ -19,13 +19,17 @@
         <div>
           <%= f.label :cage_temperature, class: "text-sm font-semibold text-gray-700" %>
           <%= f.number_field :cage_temperature, step: 0.1,
+                placeholder: "例：25.0",
                 class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+          <p class="mt-1 text-xs text-gray-500">小数1桁までOK（-50〜50）</p>
         </div>
 
         <div>
           <%= f.label :cage_humidity, class: "text-sm font-semibold text-gray-700" %>
           <%= f.number_field :cage_humidity, step: 1,
+                placeholder: "例：45",
                 class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+          <p class="mt-1 text-xs text-gray-500">整数のみ（0〜100）</p>
         </div>
       </div>
     </section>
