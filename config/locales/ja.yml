@@ -5,6 +5,9 @@ ja:
     title: Fukumomo Log
     tagline: フクロモモンガの健康管理に必要な項目をシンプルに記録できます。
   devise:
+    failure:
+      invalid: "メールアドレスまたはパスワードが違います。"
+      not_found_in_database: "メールアドレスまたはパスワードが違います。"
     registrations:
       signed_up: "登録が完了しました。"
       user:

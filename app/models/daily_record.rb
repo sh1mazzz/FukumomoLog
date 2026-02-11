@@ -11,6 +11,7 @@ class DailyRecord < ApplicationRecord
 
   validates :record_date, uniqueness: { scope: :sugar_glider_id }
   validates :cage_temperature, numericality: { greater_than_or_equal_to: -50, less_than_or_equal_to: 50 }
+  validates :cage_humidity, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :activity_hours, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 24 }
   validate :activity_hours_half_step
 

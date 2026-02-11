@@ -10,7 +10,7 @@ class DailyRecordsController < ApplicationController
     @daily_record = @sugar_glider.daily_records.build(daily_record_params)
 
     if @daily_record.save
-      redirect_to new_daily_record_path, success: t("daily_records.new.success")
+      redirect_to mypage_path, success: t("daily_records.new.success")
     else
       flash.now[:alert] = t("daily_records.new.failure")
       render :new, status: :unprocessable_entity

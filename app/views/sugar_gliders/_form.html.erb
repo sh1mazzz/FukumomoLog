@@ -1,4 +1,6 @@
 <%= form_with model: sugar_glider, url: sugar_glider_path, local: true, html: { class: "mt-6 space-y-6" } do |f| %>
+  <%= render "shared/form_errors", object: sugar_glider %>
+
   <div>
     <%= f.label :name, class: "text-sm font-semibold text-gray-700" %>
     <%= f.text_field :name,
@@ -20,7 +22,9 @@
   <div>
     <%= f.label :weight, class: "text-sm font-semibold text-gray-700" %>
     <%= f.number_field :weight, step: 0.1,
+          placeholder: "例：95.0",
           class: "mt-2 w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+    <p class="mt-1 text-xs text-gray-500">小数1桁までOK</p>
   </div>
 
   <div class="pt-2">

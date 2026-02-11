@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_07_085308) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_11_141728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_07_085308) do
     t.index ["sugar_glider_id", "record_date"], name: "index_daily_records_on_sugar_glider_id_and_record_date", unique: true
     t.index ["sugar_glider_id"], name: "index_daily_records_on_sugar_glider_id"
     t.check_constraint "activity_hours >= 0::numeric AND activity_hours <= 24::numeric", name: "daily_records_activity_hours_range"
+    t.check_constraint "cage_humidity >= 0 AND cage_humidity <= 100", name: "daily_records_cage_humidity_range"
     t.check_constraint "cage_temperature >= '-50'::integer::numeric AND cage_temperature <= 50::numeric", name: "daily_records_cage_temperature_range"
     t.check_constraint "mod(activity_hours * 2::numeric, 1::numeric) = 0::numeric", name: "daily_records_activity_hours_half_step"
   end
@@ -50,6 +51,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_07_085308) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sugar_gliders_on_user_id", unique: true
+    t.check_constraint "name::text <> ''::text", name: "sugar_gliders_name_not_blank"
+    t.check_constraint "weight >= 0::numeric AND weight <= 999.9", name: "sugar_gliders_weight_range"
   end
 
   create_table "users", force: :cascade do |t|

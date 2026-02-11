@@ -1,11 +1,11 @@
 <% flash.each do |message_type, message| %>
-  <% base_classes = "mb-6 rounded-2xl border px-5 py-4 text-sm shadow-sm" %>
+  <% base_classes = "mb-6 rounded-xl border px-5 py-4 text-sm shadow-sm" %>
   <% color_classes =
       case message_type.to_s
       when "notice", "success"
         "border-amber-200 bg-amber-50 text-amber-800"
       when "alert", "error", "danger"
-        "border-rose-200 bg-rose-50 text-rose-800"
+        "border-red-200 bg-red-50 text-red-700"
       else
         "border-gray-200 bg-white text-gray-700"
       end %>
